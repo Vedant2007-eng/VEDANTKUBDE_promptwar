@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #050914;
+    --background-secondary: #070B14;
+    --background-tertiary: #0B1020;
+    --card-bg: #0D1424;
+    --card-surface: #10182A;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(139, 92, 246, 0.3);
+    
+    --primary: #8B5CF6;
+    --primary-glow: rgba(139, 92, 246, 0.25);
+    --secondary: #3B82F6;
+    --secondary-glow: rgba(59, 130, 246, 0.25);
+    --accent: #22D3EE;
+    --accent-glow: rgba(34, 211, 238, 0.25);
+    
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --text-subtle: #64748B;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-main);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(59, 130, 246, 0.08), transparent),
+    radial-gradient(ellipse 50% 30% at 15% 70%, rgba(34, 211, 238, 0.05), transparent);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(13, 20, 36, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: rgba(16, 24, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 8px 32px -4px rgba(139, 92, 246, 0.15), 0 0 0 1px rgba(139, 92, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.glass-card-interactive {
+  background: rgba(16, 24, 42, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+.glass-card-interactive:hover {
+  background: rgba(19, 30, 52, 0.8);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+/* Glowing text and borders */
+.text-glow-primary {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.glow-border-purple {
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
+}
+
+.glow-orb {
+  box-shadow: 
+    0 0 60px 10px rgba(139, 92, 246, 0.35),
+    0 0 100px 30px rgba(59, 130, 246, 0.2),
+    inset 0 0 40px rgba(34, 211, 238, 0.3);
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050914;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+/* Keyframes for subtle animations */
+@keyframes pulseSlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: rotateSlow 20s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: rotateSlow 25s linear infinite reverse;
+}
